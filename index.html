@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="resets.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Rock, paper and scissor game</h1>
+    <header>
+        <h1>Rock, paper and scissor game</h1>
+    </header>
+    <main>
+        <div>
+            <ul class="imagenes">
+                <li>
+                    <button id="1">
+                        <img src="imagenes/piedra.jpeg" alt="Photo of The Rock">
+                        <h2>Piedra</h2>
+                    </button>
+                </li>
+                <li>
+                    <button id="2">
+                        <img src="imagenes/papel.jpeg" alt="Photo of a pile of paper">
+                        <h2>Papel</h2>
+                    </button>
+                </li>
+                <li>
+                    <button id="3">
+                        <img src="imagenes/tijeras.jpeg" alt="photo of a scissor">
+                        <h2>Tijeras</h2>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="results">
+            <h3 class="score">
+                Jugador 0 - 0 Maquina
+            </h3>
+            <h3 class="match">
+                Elige tu arma
+            </h3>
+        </div>
+
+    </main>
+
 </body>
 </html>

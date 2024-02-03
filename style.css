@@ -1,9 +1,61 @@
+body{
+    background: beige;
+}
 header{
     display: flex;
-    justify-content: space-between;
-}
-nav ul{
-    display: flex;
-    flex-wrap: nowrap;
     justify-content: center;
+    margin: 2em;
+}
+h1{
+    font-size: larger;
+    font-weight: bold;
+}
+.imagenes{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.imagenes li{
+    width: 25%;
+    height: auto;
+}
+.imagenes li button{
+    border:outset 4px black;
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    flex: initial;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    transition: 400ms;
+    background: white;
+}
+.imagenes li button:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+.imagenes li button img{
+    width: 75%;
+    height: auto;
+    margin: auto 0;
+    border-radius: 10px;
+}
+li button h2{
+    margin-top: auto;
+}
+.results{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 1em;
+}
+.score{
+    margin: 1em;
+}
+.match{
+    margin: 1em;
 }

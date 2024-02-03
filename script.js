@@ -4,39 +4,57 @@ const eleccion={
     3: "Scissors"
 };
 let eleccionJugador;
-let eleccionMaquina;
+let eleccionCpu;
+let scorePlayer=0;
+let scoreCpu=0;
+const arma=document.querySelectorAll('button');
+const puntuacion=document.querySelector(".score");
+const resultadoMatch=document.querySelector(".match");
 
+arma.forEach((boton)=>{
+    boton.addEventListener('click',()=>{
+        eleccionJugador=Number(boton.id);
+        eleccionCpu=getComputerChoice();
+        imprimir(resultado(eleccionJugador,eleccionCpu));
+    });
+});
+function imprimir(rs){
+    console.log("entro");
+    switch(rs){
+        case 0:
+            resultadoMatch.textContent="Empate";
+        break;
+        case 1:
+            scorePlayer++;
+            resultadoMatch.textContent="Ganaste";
+        break;
+        case 2:
+            scoreCpu++;
+            resultadoMatch.textContent="Perdiste";
+    }
+    resultadoMatch.textContent+=`\n
+    La maquina escogio ${eleccion[eleccionCpu]}\n
+    Elige tu arma`
+    puntuacion.textContent=`Jugador ${scorePlayer} - ${scoreCpu} Maquina`;
+}
 function getComputerChoice(){
     return Math.floor(Math.random()*3)+1;
 }
-function resultado(eJ,eM){
+function resultado(eJ,eM){//0 es empate - 1 ganaste - 2 perdiste
+    console.log(eJ);
+    console.log(eM);
     if(eJ==eM){
-        return "Empate";
+        return 0;
     }
     eJ=Number(eJ);
     switch(eJ){
         case 1:
-            return eM==2? "Perdiste": "Ganaste";
+            return eM==2? 2:1;
         break;
         case 2:
-            return eM==1? "Ganaste":"Perdiste";
+            return eM==1? 1:2;
         break;
         case 3:
-            return eM==1? "Perdiste":"Ganaste";
+            return eM==1? 2:1;
     }
-}
-while(true){
-    eleccionJugador=prompt(`Pon el numero de tu eleccion:
-    1. Piedra
-    2. Papel
-    3. Tijeras`);
-    Number(eleccionJugador);
-    if(eleccionJugador<1||eleccionJugador>3){
-        break;
-    }
-    eleccionMaquina=getComputerChoice();
-    alert(`Resultado del juego
-    Jugador     vs      Maquina
-    ${eleccion[eleccionJugador]}                    ${eleccion[eleccionMaquina]}
-            ${resultado(eleccionJugador,eleccionMaquina)}`)
 }
